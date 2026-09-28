@@ -1,5 +1,6 @@
 import { useState } from "react";
-import { Image, KeyboardAvoidingView, ScrollView, StyleSheet, Text, TextInput, View } from "react-native";
+import { Image, KeyboardAvoidingView, ScrollView, StyleSheet, Text, TextInput, TouchableOpacity, View } from "react-native";
+import { Feather } from "@expo/vector-icons"
 import Header from "./components/Header";
 import AcaiCard from "./components/AcaiCard";
 import CustomButton from "./components/CustomBotton";
@@ -19,9 +20,9 @@ export default function App() {
 
     return (
         <KeyboardAvoidingView
-        style={styles.container}
-        behavior="padding"
-        keyboardVerticalOffset={30}>
+            style={styles.container}
+            behavior="padding"
+            keyboardVerticalOffset={30}>
             <ScrollView>
                 {/* Header */}
                 <Header />
@@ -29,92 +30,105 @@ export default function App() {
 
                 {/* Conteúdo */}
                 <View style={styles.content}>
-                  <View style={styles.grettingMessage}>
-                    <Text style={styles.grettingTitle}>Refresque seu dia!</Text>
-                    <Text style={styles.grettingSubtitle}>Escolha seu açaí favorito de hoje</Text>
-                  </View>
-
-                  <View style={styles.featured}>
-                    <Image
-                    source={require("./assets/featured-image.png")}
-                    style={styles.image}
-                    ></Image>
-
-                    <View style={styles.mostRequested}>
-                    <Text style={styles.mostRequestedName}>Açaí Turbinado 500ml</Text>
-                    <Text style={styles.mostRequestedTag}>MAIS PEDIDO</Text>
+                    <View style={styles.grettingMessage}>
+                        <Text style={styles.grettingTitle}>Refresque seu dia!</Text>
+                        <Text style={styles.grettingSubtitle}>Escolha seu açaí favorito de hoje</Text>
                     </View>
-    
-                    <Text style={styles.mostRequestedDescription}>Açaí puro batido com morango, banana, leite condensado e granola crocante</Text>
-                    <View style={styles.addBag}>
-                        <Text style={styles.mostRequestedPrice}>R$ 22,90</Text>
-                        <Text style={styles.mostRequestedAdd}>Adicionar</Text>
+
+                    <View style={styles.featured}>
+                        <Image
+                            source={require("./assets/featured-image.png")}
+                            style={styles.image}
+                        ></Image>
+
+                        <View style={styles.mostRequested}>
+                            <Text style={styles.mostRequestedName}>Açaí Turbinado 500ml</Text>
+                            <Text style={styles.mostRequestedTag}>MAIS PEDIDO</Text>
+                        </View>
+
+                        <Text style={styles.mostRequestedDescription}>Açaí puro batido com morango, banana, leite condensado e granola crocante</Text>
+
+                        <View style={styles.addBag}>
+                            <Text style={styles.mostRequestedPrice}>R$ 22,90</Text>
+                            <TouchableOpacity style={styles.mostRequestedAdd} activeOpacity={0.8}>
+                                <Feather name="shopping-bag" size={16} color="#FFFFFF"></Feather>
+                                <Text style={styles.colorText}>Adicionar</Text>
+                            </TouchableOpacity>
+                        </View>
                     </View>
-                    
-                  </View>
-
-                  <Text style={styles.sectionTitle}>Nossos Copos & Tigelas</Text>
-
-                  <View style={styles.menu}>
-                    <AcaiCard
-                    img={require("./assets/product-image1.png")}
-                    name="Açaí Tradicional"
-                    description="Açaí cremoso com banana e granola tradicional"
-                    price="14,00"
-                    />
-
-                    <AcaiCard
-                    img={require("./assets/product-image2.png")}
-                    name="Copo Tropical"
-                    description="Camadas de Açaí, morango, kiwi e leite em pó"
-                    price="18,50"
-                    />
-
-                    <AcaiCard
-                    img={require("./assets/product-image3.png")}
-                    name="Vitamina de Açaí"
-                    description="Bebida energética batida com guaraná e aveia"
-                    price="12,00"
-                    />
-
-                    <AcaiCard
-                    img={require("./assets/product-image4.png")}
-                    name="Açaí Fit Zero"
-                    description="Zero adição de açúcar, com chia e castanhas"
-                    price="16,90"
-                    />
-                  </View>
-
+                    <View>
                 </View>
-                <View style={styles.orderSection}>
-                    <Text style={styles.question}>Qual é o seu nome? </Text>
 
-                    <TextInput
-                    style={styles.input}
-                    placeholder="Digite seu nome"
-                    value={name}
-                    onChangeText={setName}
-                    ></TextInput>
 
-                    <CustomButton title="Fazer meu pedido" onPress={handleOrder}></CustomButton>
+                        <Text style={styles.sectionTitle}>Nossos Copos & Tigelas</Text>
 
-                    {message !== "" && (
-                        <Text style={styles.messageText}>{message}</Text>
-                    )}
-                </View>
-                {/* Conteúdo */}
-                {/* Footer */}
-                <Footer></Footer>
-                {/* Footer */}
+                        <View style={styles.menu}>
+                            <AcaiCard
+                                img={require("./assets/product-image1.png")}
+                                name="Açaí Tradicional"
+                                description="Açaí cremoso com banana e granola tradicional"
+                                price="14,00"
+                            />
+
+                            <AcaiCard
+                                img={require("./assets/product-image2.png")}
+                                name="Copo Tropical"
+                                description="Camadas de Açaí, morango, kiwi e leite"
+                                price="18,50"
+                            />
+
+                            <AcaiCard
+                                img={require("./assets/product-image3.png")}
+                                name="Vitamina de Açaí"
+                                description="Bebida energética batida com guaraná e aveia"
+                                price="12,00"
+                            />
+
+                            <AcaiCard
+                                img={require("./assets/product-image4.png")}
+                                name="Açaí Fit Zero"
+                                description="Zero adição de açúcar, com chia e castanhas"
+                                price="16,90"
+                            />
+                        </View>
+
+                    </View>
+                    <View style={styles.orderSection}>
+                        <Text style={styles.question}>Qual é o seu nome? </Text>
+
+                        <View style={styles.inputIcon}>
+                            <Feather name="user" size={18} color="#644D6A"></Feather>
+                            <TextInput
+                            style={styles.input}
+                            placeholder="Digite seu nome"
+                            value={name}
+                            onChangeText={setName}
+                        ></TextInput>
+                        </View>
+                        
+
+                        <CustomButton title="Fazer meu pedido" onPress={handleOrder}></CustomButton>
+
+                        {message !== "" && (
+                        <View style={styles.messageIcon}>
+                            <Feather name="check-circle" size={18} color="#2E7D32" />
+                            <Text style={styles.messageText}>{message}</Text>
+                        </View>
+                            )}
+                    </View>
+                    {/* Conteúdo */}
+                    {/* Footer */}
+                    <Footer></Footer>
+                    {/* Footer */}
             </ScrollView>
-        </KeyboardAvoidingView>
+        </KeyboardAvoidingView >
     )
 }
 
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-         backgroundColor: "##FBF9FC"
+        backgroundColor: "#FBF9FC",
     },
     content: {
         paddingHorizontal: 20,
@@ -123,14 +137,15 @@ const styles = StyleSheet.create({
         marginTop: 10,
         marginBottom: 24,
     },
-    grettingTitle:{
+    grettingTitle: {
         fontSize: 32,
         fontWeight: "800",
         color: "#2f2d2c",
     },
     grettingSubtitle: {
         fontSize: 16,
-        color: "#9b9b9b",
+        color: "#644D6A",
+        fontWeight: "400",
         marginTop: 4,
     },
     featured: {
@@ -151,9 +166,9 @@ const styles = StyleSheet.create({
     },
     mostRequested: {
         width: "100%",
-        paddingTop: 6,
+        paddingTop: 1,
         padding: 3,
-        paddingBottom: 10,
+        paddingBottom: 5,
         flexDirection: "row",
         justifyContent: "space-between",
         alignItems: "center"
@@ -162,43 +177,59 @@ const styles = StyleSheet.create({
         width: "100%",
         paddingTop: 6,
         padding: 10,
-        paddingBottom: 20,
+        paddingBottom: 5,
         flexDirection: "row",
         justifyContent: "space-between",
         alignItems: "center"
     },
+    add: {
+        flexDirection: "row",
+        alignItems: "center",
+        justifyContent: "center",
+        gap: 5
+    }
+    ,
     mostRequestedName: {
         fontSize: 20,
         fontWeight: "800",
         color: "#2f2d2c",
     },
     mostRequestedTag: {
+        padding: 6,
         fontWeight: "800",
         backgroundColor: "#F3E5F5",
         color: "#7B1FA2",
-        borderRadius: 16,
+        borderRadius: 20,
     },
     mostRequestedDescription: {
         fontSize: 14,
-        fontWeight: "600",
-        color: "#9b9b9b",
-        marginTop: 4,
+        fontWeight: "400",
+        color: "#644D6A",
+        marginTop: 2,
     },
     mostRequestedPrice: {
-        fontSize: 20,
+        fontSize: 21,
         color: "#7B1FA2",
         fontWeight: "900",
-        marginTop: 12,
     },
     mostRequestedAdd: {
-        fontWeight: "800",
+        flexDirection: "row",
+        alignItems: "center",
+        gap: 6,
+        color: "#FFFFFF",
         backgroundColor: "#7B1FA2",
-        color: "#ffffffff",
         borderRadius: 20,
+        paddingVertical: 10,
+        paddingHorizontal: 18,
+    },
+    colorText:{
+        color: "#FFFFFF",
+        fontWeight: "800",
     },
     sectionTitle: {
         fontWeight: "800",
         fontSize: 20,
+        marginBottom: 12,
     },
     orderSection: {
         padding: 24,
@@ -208,7 +239,7 @@ const styles = StyleSheet.create({
         shadowOffset: { width: 0, height: 8 },
         shadowOpacity: 0.05,
         elevation: 4,
-        marginTop: 10,
+        marginTop: 4,
     },
     question: {
         fontSize: 18,
@@ -220,24 +251,50 @@ const styles = StyleSheet.create({
         flexDirection: "row",
         flexWrap: "wrap",
         justifyContent: "space-between",
-        marginBottom: 20,
+        marginTop: 15,
+        marginBottom: 15,
     },
     input: {
         width: "100%",
         height: 56,
-        backgroundColor: "#f0f0f0",
+        backgroundColor: "#F1EDF4",
         borderRadius: 16,
         paddingHorizontal: 20,
         fontSize: 16,
     },
-    messageText: {
-        fontSize: 16,
-        fontWeight: "800",
-        color: "#2E7D32",
-        backgroundColor: "#E8F5E9",
+    inputIcon:{
+        width: "100%",
+        height: 56,
+        backgroundColor: "#F1EDF4",
         borderRadius: 16,
+        paddingHorizontal: 20,
+        flexDirection: "row",
         alignItems: "center",
+        gap: 10,
+    },
+    messageIcon: {
+        flexDirection: "row",
+        alignItems: "center",
+        gap: 8,
+        backgroundColor: "#E8F5E9",
+        borderRadius: 12,
+        paddingVertical: 8,
+        paddingHorizontal: 8,
         marginTop: 20,
         marginBottom: 10,
     },
+
+    messageText: {
+        padding: 10,
+        fontSize: 16,
+        fontWeight: "600",
+        color: "#2E7D32",
+        backgroundColor: "#E8F5E9",
+        alignItems: "center",
+    },
+    button: {
+        color: "#7B1FA2"
+    },
+
 })
+

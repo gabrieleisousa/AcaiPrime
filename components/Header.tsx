@@ -31,9 +31,14 @@ const styles = StyleSheet.create({
         color: "#2f2d2c"
     },
     headerSubtitle:{
-        fontSize: 14,
-        color: "#9b9b9b",
+        fontSize: 16,
+        color: "#644D6A" ,
+        fontWeight: "400",
         marginTop: 4
+        // fontSize: 16,
+        // color: "#644D6A",
+        // fontWeight: "400",
+        // marginTop: 4,
     },
     avatar: {
         width: 44,
