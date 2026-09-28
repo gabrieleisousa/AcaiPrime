@@ -1,4 +1,7 @@
+<<<<<<< HEAD
 import { Feather } from "@expo/vector-icons";
+=======
+>>>>>>> 8863dd25a8bd861989f26254ee6697cd7e448edd
 import { Image, ImageSourcePropType, StyleSheet, Text, TouchableOpacity, View } from "react-native";
 
 type AcaiCardProps = {
@@ -20,6 +23,7 @@ export default function AcaiCard({
             <Image source={img} style={styles.cardImage} />
             <Text style={styles.cardTitle}>{name}</Text>
             <Text style={styles.cardDescription}>{description}</Text>
+<<<<<<< HEAD
 
             <View style={styles.cardButton}>
                 <Text style={styles.cardPrice}>R$ {price}</Text>
@@ -29,6 +33,15 @@ export default function AcaiCard({
             </View>
 
             
+=======
+        
+            <View style={styles.cardButton}>
+                <Text style={styles.cardPrice}>R$ {price}</Text>
+                <TouchableOpacity style={styles.addButtom} activeOpacoty={0.8}>
+                    <Feather name="plus" size={18} color="#ffffff" />
+                </TouchableOpacity>
+            </View>
+>>>>>>> 8863dd25a8bd861989f26254ee6697cd7e448edd
         </View>
     )
 }
@@ -70,6 +83,7 @@ const styles = StyleSheet.create({
           fontSize: 16,
           fontWeight: "800",
           color: "#7B1FA2",
+<<<<<<< HEAD
           marginTop: 3,
     },
     addButton: {
@@ -79,5 +93,15 @@ const styles = StyleSheet.create({
         backgroundColor: "#7B1FA2",
         justifyContent: "center",
         alignItems: "center",
+=======
+>>>>>>> 8863dd25a8bd861989f26254ee6697cd7e448edd
     },
+    addButton: {
+        width: 32,
+        height: 32,
+        borderRadius: 16,
+        backgroundColor: "#7B1FA2",
+        justifyContent: "center",
+        alignItems: "center",
+    }
 })

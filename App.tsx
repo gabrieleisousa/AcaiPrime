@@ -1,6 +1,10 @@
 import { useState } from "react";
 import { Image, KeyboardAvoidingView, ScrollView, StyleSheet, Text, TextInput, TouchableOpacity, View } from "react-native";
+<<<<<<< HEAD
 import { Feather } from "@expo/vector-icons"
+=======
+import { Feather } from "@expo/vector-icons";import { Image, KeyboardAvoidingView, ScrollView, StyleSheet, Text, TextInput, View } from "react-native";
+>>>>>>> 8863dd25a8bd861989f26254ee6697cd7e448edd
 import Header from "./components/Header";
 import AcaiCard from "./components/AcaiCard";
 import CustomButton from "./components/CustomBotton";
@@ -34,6 +38,7 @@ export default function App() {
                         <Text style={styles.grettingTitle}>Refresque seu dia!</Text>
                         <Text style={styles.grettingSubtitle}>Escolha seu açaí favorito de hoje</Text>
                     </View>
+<<<<<<< HEAD
 
                     <View style={styles.featured}>
                         <Image
@@ -55,13 +60,36 @@ export default function App() {
                                 <Text style={styles.colorText}>Adicionar</Text>
                             </TouchableOpacity>
                         </View>
+=======
+    
+                    <Text style={styles.mostRequestedDescription}>Açaí puro batido com morango, banana, leite condensado e granola crocante</Text>
+                    <View style={styles.addBag}>
+                        <Text style={styles.mostRequestedPrice}>R$ 22,90</Text>
+                        <TouchableOpacity style={styles.mostRequestedAdd} activeOpacity={0.8}>
+                            <Feather name="shopping-bag" size={16} color="#ffffff" />
+                            <Text style={styles.mostRequestedAddText}>Adicionar</Text>
+                        <TouchableOpacity/>
+>>>>>>> 8863dd25a8bd861989f26254ee6697cd7e448edd
                     </View>
                     <View>
                 </View>
 
+<<<<<<< HEAD
+=======
+                    <View style={styles.inputIcon}>
+                        <Feather name="user" size={18} color="#ffffff" />
+                        <TextInput
+                        style={styles.input}
+                        placeholder="Digite seu nome"
+                        value={name}
+                        onChangeText={setName}
+                        ></TextInput>
+                    </View>
+>>>>>>> 8863dd25a8bd861989f26254ee6697cd7e448edd
 
                         <Text style={styles.sectionTitle}>Nossos Copos & Tigelas</Text>
 
+<<<<<<< HEAD
                         <View style={styles.menu}>
                             <AcaiCard
                                 img={require("./assets/product-image1.png")}
@@ -110,16 +138,26 @@ export default function App() {
                         <CustomButton title="Fazer meu pedido" onPress={handleOrder}></CustomButton>
 
                         {message !== "" && (
+=======
+                    {message !== "" && (
+>>>>>>> 8863dd25a8bd861989f26254ee6697cd7e448edd
                         <View style={styles.messageIcon}>
                             <Feather name="check-circle" size={18} color="#2E7D32" />
                             <Text style={styles.messageText}>{message}</Text>
                         </View>
                             )}
+<<<<<<< HEAD
                     </View>
                     {/* Conteúdo */}
                     {/* Footer */}
                     <Footer></Footer>
                     {/* Footer */}
+=======
+                {/* Conteúdo */}
+                {/* Footer */}
+                <Footer></Footer>
+                {/* Footer */}
+>>>>>>> 8863dd25a8bd861989f26254ee6697cd7e448edd
             </ScrollView>
         </KeyboardAvoidingView >
     )
@@ -216,16 +254,26 @@ const styles = StyleSheet.create({
         flexDirection: "row",
         alignItems: "center",
         gap: 6,
+<<<<<<< HEAD
         color: "#FFFFFF",
+=======
+>>>>>>> 8863dd25a8bd861989f26254ee6697cd7e448edd
         backgroundColor: "#7B1FA2",
         borderRadius: 20,
         paddingVertical: 10,
         paddingHorizontal: 18,
+<<<<<<< HEAD
     },
     colorText:{
         color: "#FFFFFF",
         fontWeight: "800",
+=======
+>>>>>>> 8863dd25a8bd861989f26254ee6697cd7e448edd
     },
+    mostRequestedAddText: {
+        fontWeight: "800",
+        color: "#ffffff",
+},
     sectionTitle: {
         fontWeight: "800",
         fontSize: 20,
@@ -254,6 +302,16 @@ const styles = StyleSheet.create({
         marginTop: 15,
         marginBottom: 15,
     },
+    inputIcon: {
+        width: "100%",
+        height: 56,
+        backgroundColor: "#f0f0f0",
+        borderRadius: 16,
+        paddingHorizontal: 20,
+        flexDirection: "row",
+        alignItems: "center",
+        gap: 10,
+    },
     input: {
         width: "100%",
         height: 56,
@@ -262,10 +320,29 @@ const styles = StyleSheet.create({
         paddingHorizontal: 20,
         fontSize: 16,
     },
+<<<<<<< HEAD
     inputIcon:{
         width: "100%",
         height: 56,
         backgroundColor: "#F1EDF4",
+=======
+    messageIcon: {
+        flexDirection: "row",
+        alignItems: "center",
+        gap: 8,
+        backgroundColor: "#E8F5E9",
+        borderRadius: 16,
+        paddingVertical: 14,
+        paddingHorizontal: 16,
+        marginTop: 20,
+        marginBottom: 10,
+    },
+    messageText: {
+        fontSize: 16,
+        fontWeight: "800",
+        color: "#2E7D32",
+        backgroundColor: "#E8F5E9",
+>>>>>>> 8863dd25a8bd861989f26254ee6697cd7e448edd
         borderRadius: 16,
         paddingHorizontal: 20,
         flexDirection: "row",
