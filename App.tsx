@@ -1,5 +1,6 @@
 import { useState } from "react";
-import { Image, KeyboardAvoidingView, ScrollView, StyleSheet, Text, TextInput, View } from "react-native";
+import { Image, KeyboardAvoidingView, ScrollView, StyleSheet, Text, TextInput, TouchableOpacity, View } from "react-native";
+import { Feather } from "@expo/vector-icons";import { Image, KeyboardAvoidingView, ScrollView, StyleSheet, Text, TextInput, View } from "react-native";
 import Header from "./components/Header";
 import AcaiCard from "./components/AcaiCard";
 import CustomButton from "./components/CustomBotton";
@@ -48,7 +49,10 @@ export default function App() {
                     <Text style={styles.mostRequestedDescription}>Açaí puro batido com morango, banana, leite condensado e granola crocante</Text>
                     <View style={styles.addBag}>
                         <Text style={styles.mostRequestedPrice}>R$ 22,90</Text>
-                        <Text style={styles.mostRequestedAdd}>Adicionar</Text>
+                        <TouchableOpacity style={styles.mostRequestedAdd} activeOpacity={0.8}>
+                            <Feather name="shopping-bag" size={16} color="#ffffff" />
+                            <Text style={styles.mostRequestedAddText}>Adicionar</Text>
+                        <TouchableOpacity/>
                     </View>
                     
                   </View>
@@ -89,19 +93,24 @@ export default function App() {
                 <View style={styles.orderSection}>
                     <Text style={styles.question}>Qual é o seu nome? </Text>
 
-                    <TextInput
-                    style={styles.input}
-                    placeholder="Digite seu nome"
-                    value={name}
-                    onChangeText={setName}
-                    ></TextInput>
+                    <View style={styles.inputIcon}>
+                        <Feather name="user" size={18} color="#ffffff" />
+                        <TextInput
+                        style={styles.input}
+                        placeholder="Digite seu nome"
+                        value={name}
+                        onChangeText={setName}
+                        ></TextInput>
+                    </View>
 
                     <CustomButton title="Fazer meu pedido" onPress={handleOrder}></CustomButton>
 
                     {message !== "" && (
-                        <Text style={styles.messageText}>{message}</Text>
-                    )}
-                </View>
+                        <View style={styles.messageIcon}>
+                            <Feather name="check-circle" size={18} color="#2E7D32" />
+                            <Text style={styles.messageText}>{message}</Text>
+                        </View>
+                            )}
                 {/* Conteúdo */}
                 {/* Footer */}
                 <Footer></Footer>
@@ -191,11 +200,19 @@ const styles = StyleSheet.create({
         marginTop: 12,
     },
     mostRequestedAdd: {
-        fontWeight: "800",
+        flexDirection: "row",
+        alignItems: "center",
+        gap: 6,
         backgroundColor: "#7B1FA2",
         color: "#ffffffff",
         borderRadius: 20,
+        paddingVertical: 10,
+        paddingHorizontal: 18,
     },
+    mostRequestedAddText: {
+        fontWeight: "800",
+        color: "#ffffff",
+},
     sectionTitle: {
         fontWeight: "800",
         fontSize: 20,
@@ -222,6 +239,16 @@ const styles = StyleSheet.create({
         justifyContent: "space-between",
         marginBottom: 20,
     },
+    inputIcon: {
+        width: "100%",
+        height: 56,
+        backgroundColor: "#f0f0f0",
+        borderRadius: 16,
+        paddingHorizontal: 20,
+        flexDirection: "row",
+        alignItems: "center",
+        gap: 10,
+    },
     input: {
         width: "100%",
         height: 56,
@@ -229,6 +256,17 @@ const styles = StyleSheet.create({
         borderRadius: 16,
         paddingHorizontal: 20,
         fontSize: 16,
+    },
+    messageIcon: {
+        flexDirection: "row",
+        alignItems: "center",
+        gap: 8,
+        backgroundColor: "#E8F5E9",
+        borderRadius: 16,
+        paddingVertical: 14,
+        paddingHorizontal: 16,
+        marginTop: 20,
+        marginBottom: 10,
     },
     messageText: {
         fontSize: 16,
